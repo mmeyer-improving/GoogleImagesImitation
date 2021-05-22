@@ -1,0 +1,17 @@
+#images-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#focus-container {
+    display: none;
+}
+
+.single-image-container {
+    
+}
+.list-image {
+    max-width: 250px;
+    max-height: 100px;
+    margin: 5px 20px;
+}
