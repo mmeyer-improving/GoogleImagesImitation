@@ -7,6 +7,8 @@ var images = [
     'https://ksr-ugc.imgix.net/assets/027/107/388/3a20fda1485bed478d9e33376d7bc810_original.png?ixlib=rb-4.0.2&crop=faces&w=1552&h=873&fit=crop&v=1573000773&auto=format&frame=1&q=92&s=cadd0edf5a3c64925b68e3fd1abec73a'];
 var imagesContainer = document.querySelector('#image-list');
 var focusPanel = document.querySelector('#focus-panel');
+var focusImage = document.querySelector('#focus-image');
+var exitIcon = document.querySelector('#exit-icon');
 
 generateImages(200);
 
@@ -27,6 +29,11 @@ window.onscroll = function(e) {
     }
 };
 
+exitIcon.addEventListener('click', () => {
+    focusPanel.classList.toggle('hidden');
+    imagesContainer.classList.toggle('condensed')
+})
+
 imagesContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('image-result')) {
         console.log('Clicked an image');
@@ -38,6 +45,6 @@ imagesContainer.addEventListener('click', (e) => {
             imagesContainer.classList.toggle('condensed')
         }
         //Change image in images container to be url of clicked image
-
+        focusImage.src = e.target.src;
     }
 })
