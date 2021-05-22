@@ -5,8 +5,8 @@ var images = [
     'https://pbs.twimg.com/media/Ek9Q1SfU0AAM-r-.jpg', 
     'https://pbs.twimg.com/media/EDKCOJfVUAA1Z6c.jpg', 
     'https://ksr-ugc.imgix.net/assets/027/107/388/3a20fda1485bed478d9e33376d7bc810_original.png?ixlib=rb-4.0.2&crop=faces&w=1552&h=873&fit=crop&v=1573000773&auto=format&frame=1&q=92&s=cadd0edf5a3c64925b68e3fd1abec73a'];
-var imagesContainer = document.querySelector('#images-container');
-var focusContainer = document.querySelector('#focus-container');
+var imagesContainer = document.querySelector('#image-list');
+var focusContainer = document.querySelector('#focus-panel');
 
 generateImages(200);
 
@@ -14,7 +14,7 @@ function generateImages(numberToGenerate) {
     for(var i = 0; i < numberToGenerate; i++) {
         var randomURL = images[Math.floor(Math.random() * images.length)];
         var img = document.createElement('IMG');
-        img.classList.toggle('list-image');
+        img.classList.toggle('image-result');
         imagesContainer.appendChild(img);
         
         img.src = randomURL;
@@ -28,7 +28,7 @@ window.onscroll = function(e) {
 };
 
 imagesContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('list-image')) {
+    if (e.target.classList.contains('image-result')) {
         //resize images container
         //Show focus container
         //change image in images container to be url of clicked image
