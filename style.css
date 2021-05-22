@@ -2,16 +2,21 @@
     display: flex;
 }
 
-#image-list {
+.image-list-full-width {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 58%;
 }
 
-#focus-panel {
-    display: flex;
-    justify-content: center;
+.condensed {
+    width: 58%
+}
+
+.hidden {
+    display: none;
+}
+
+#focus-panel{
     position: fixed;
     right:0px;
     width: 42%;
@@ -19,16 +24,18 @@
     background-color: rgb(53, 53, 53);
 }
 
-
 .image-result {
     max-width: 250px;
     max-height: 100px;
     margin: 5px 20px;
 }
 
+#focus-container {
+    width: 92%;
+    margin: 25px auto;
+}
+
 #focus-image {
-    display: inline-block;
-    margin: 100px 25px;
-    max-width: 700px;
-    max-height: 500px;
+    width: 100%;
+    max-height: 75vh;
 }

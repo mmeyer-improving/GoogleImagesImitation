@@ -6,7 +6,7 @@ var images = [
     'https://pbs.twimg.com/media/EDKCOJfVUAA1Z6c.jpg', 
     'https://ksr-ugc.imgix.net/assets/027/107/388/3a20fda1485bed478d9e33376d7bc810_original.png?ixlib=rb-4.0.2&crop=faces&w=1552&h=873&fit=crop&v=1573000773&auto=format&frame=1&q=92&s=cadd0edf5a3c64925b68e3fd1abec73a'];
 var imagesContainer = document.querySelector('#image-list');
-var focusContainer = document.querySelector('#focus-panel');
+var focusPanel = document.querySelector('#focus-panel');
 
 generateImages(200);
 
@@ -23,14 +23,21 @@ function generateImages(numberToGenerate) {
 
 window.onscroll = function(e) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-        generateImages(100)
+        generateImages(100);
     }
 };
 
 imagesContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('image-result')) {
-        //resize images container
-        //Show focus container
-        //change image in images container to be url of clicked image
+        console.log('Clicked an image');
+        //If the focus panel is not already shown
+        if (imagesContainer.classList.contains('condensed') === false) {
+            //Show focus container if not already shown
+            focusPanel.classList.toggle('hidden');
+            //Resize images container if not already resized
+            imagesContainer.classList.toggle('condensed')
+        }
+        //Change image in images container to be url of clicked image
+
     }
 })
